@@ -1,26 +1,25 @@
 class Stack {
   constructor() {
-    this.items = []
+    this.items = [];
   }
 
   addItem(element) {
-    this.items.push(element)
+    this.items.push(element);
   }
 
   isEmpty() {
-    return this.items.length === 0
+    return this.items.length === 0;
   }
 
   printStack() {
-    return !this.isEmpty() ? this.items.join(', ') : 'Nothing to display'
+    return !this.isEmpty() ? this.items.join(', ') : 'Nothing to display';
   }
 
   removeItem() {
-    return !this.isEmpty() ? this.items.pop() : 'List is empty'
+    return !this.isEmpty() ? this.items.pop() : 'List is empty';
   }
 
   peek() {
-    return this.items[this.items.length - 1]
+    return this.items[this.items.length - 1];
   }
-
 }

@@ -1,37 +1,33 @@
-const Queue = require('../datastructures/queue')
-const Graph = require('../datastructures/graph')
+const Graph = require('../datastructures/graph');
 
-const graph = new Graph(6)
+const graph = new Graph(6);
 
-class depthFirstSearch {
-	constructor(){ }
-
-dfs(startingNode) {
-	let visited = [];
-	for (let i = 0; i < graph.noOfVertices; i++) {
-		visited[i] = false
+class DepthFirstSearch {
+  dfs(startingNode) {
+    const visited = [];
+    for (let i = 0; i < graph.noOfVertices; i++) {
+      visited[i] = false;
+    }
+    this.DFSUtil(startingNode, visited);
   }
-  this.DFSUtil(startingNode, visited)
-}
 
   DFSUtil(vert, visited) {
-  	visited[vert] = true;
-  	console.log(vert);
-  	const get_neighbours = graph.AdjList.get(vert);
-  	for (var i in get_neighbours) {
-  		const get_elem = get_neighbours[i]
-  		if (!visited[get_elem]) {
-  			this.DFSUtil(get_elem, visited)
+    visited[vert] = true;
+    const getNeighbours = graph.AdjList.get(vert);
+    for (const i in getNeighbours) {
+      const get_elem = getNeighbours[i];
+      if (!visited[get_elem]) {
+        this.DFSUtil(get_elem, visited);
       }
     }
   }
 }
 
-const dfs = new depthFirstSearch()
+const dfs = new DepthFirstSearch();
 
-const vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ];
-for (var i = 0; i < vertices.length; i++) {
-    graph.addVertex(vertices[i]);
+const vertices = ['A', 'B', 'C', 'D', 'E', 'F'];
+for (let i = 0; i < vertices.length; i++) {
+  graph.addVertex(vertices[i]);
 }
 
 graph.addEdge('A', 'B');

@@ -1,38 +1,35 @@
-const Queue = require('../datastructures/queue')
-const Graph = require('../datastructures/graph')
+const Queue = require('../datastructures/queue');
+const Graph = require('../datastructures/graph');
 
-const graph = new Graph(6)
+const graph = new Graph(6);
 
-class breadthFirstSearch {
-	constructor(){ }
-
-	bfs(startingNode) {
-		var visited = [];
-		for (var i = 0; i < graph.noOfVertices; i++)
-		visited[i] = false;
-		var q = new Queue();
-		visited[startingNode] = true;
-		q.enqueue(startingNode);
-		while (!q.isEmpty()) {
-			var getQueueElement = q.dequeue();
-			console.log(getQueueElement);
-			var get_List = graph.AdjList.get(getQueueElement);
-			for (var i in get_List) {
-				var neigh = get_List[i];
-				if (!visited[neigh]) {
-					visited[neigh] = true;
-					q.enqueue(neigh);
-				}
-			}
-		}
-	}
+class BreadthFirstSearch {
+  bfs(startingNode) {
+    const visited = [];
+    for (var i = 0; i < graph.noOfVertices; i++) { visited[i] = false; }
+    const q = new Queue();
+    visited[startingNode] = true;
+    q.enqueue(startingNode);
+    while (!q.isEmpty()) {
+      const getQueueElement = q.dequeue();
+      console.log(getQueueElement);
+      const get_List = graph.AdjList.get(getQueueElement);
+      for (var i in get_List) {
+        const neigh = get_List[i];
+        if (!visited[neigh]) {
+          visited[neigh] = true;
+          q.enqueue(neigh);
+        }
+      }
+    }
+  }
 }
 
-const bfs = new breadthFirstSearch()
+const bfs = new BreadthFirstSearch();
 
-const vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ];
-for (var i = 0; i < vertices.length; i++) {
-    graph.addVertex(vertices[i]);
+const vertices = ['A', 'B', 'C', 'D', 'E', 'F'];
+for (let i = 0; i < vertices.length; i++) {
+  graph.addVertex(vertices[i]);
 }
 
 graph.addEdge('A', 'B');
