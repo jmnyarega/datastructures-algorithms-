@@ -4,7 +4,7 @@ const Node = require('./node');
  * A doubly-linked/circular list is the same as a singly-linked list,
  * except that every node has both a next pointer pointing forwards
  *and a pre (previous) pointer pointing backwards
- * Just add prev to the { } node Object
+ * Just add prev to the { } node Objects
  * const list = { head: { value: 12, prev: null, next: { value: 99, prev: null, next: { value: 37, prev: null, next: null } } } };
  */
 
