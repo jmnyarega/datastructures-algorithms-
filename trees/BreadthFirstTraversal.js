@@ -18,11 +18,11 @@ class BFTraversal extends Tree {
   }
 
   /**
-    * Print nodes at a given level
-    * @param {tree} tree the node
-    * @param {level} level level of the node tree
-    * @return {null}
-    */
+  * Print nodes at a given level
+  * @param {tree} tree the node
+  * @param {level} level level of the node tree
+  * @return {null}
+  */
   printGivenLevel(tree, level) {
     if (!tree) return;
     if (level === 1) {

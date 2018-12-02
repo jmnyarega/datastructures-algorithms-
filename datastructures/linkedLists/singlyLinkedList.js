@@ -1,5 +1,3 @@
-const Node = require('./node');
-
 /**
  *A linked list is an ordered collection of data elements.
  *A data element can be represented as a node in a linked list.
@@ -68,7 +66,9 @@ class LinkedList {
   /**
    * [removeItem just removes the node value passed as an argument]
    * @param  {data} data damn it, this is just my awesome number variable
-   * @return {Object}      returns new Node (Dont be afraid child, a node is just an Object with next and data property on it. just saying)
+   * @return {Object}      returns new Node (Dont be afraid child, a node is just
+   * an Object with next and data property on it. just saying)
+   * @return {node} node object
    */
   removeItem(data) {
     if (!this.length) return;

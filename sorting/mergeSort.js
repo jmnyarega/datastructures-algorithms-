@@ -1,4 +1,9 @@
-// compare the arrays item by item and return the concatenated result
+/**
+* merge ->  compare the arrays item by item and return the concatenated result
+* @param {left} left left half of the list
+* @param {right} right right half of the list
+* @return {mergingResult} sorted array
+*/
 function merge(left, right) {
   const result = [];
   let indexLeft = 0;
@@ -18,17 +23,21 @@ function merge(left, right) {
   return mergingResult;
 }
 
-// Split the array into halves and merge them recursively
-function mergeSort(arr) {
-  console.log('Splitting ', arr);
-  if (arr.length === 1) {
-    // return once we hit an array with a single item
-    return arr;
+/**
+* merge sort ->   Split the array into halves and merge them recursively
+* @param {data} data data to be sorted
+* @param {right} right right half of the list
+* @return {func} merge function called recursively
+*/
+function mergeSort(data) {
+  console.log('Splitting ', data);
+  if (data.length === 1) {
+    return data;
   }
 
-  const middle = Math.floor(arr.length / 2); // get the middle item of the array rounded down
-  const left = arr.slice(0, middle); // items on the left side
-  const right = arr.slice(middle); // items on the right side
+  const middle = Math.floor(data.length / 2);
+  const left = data.slice(0, middle);
+  const right = data.slice(middle);
 
   return merge(
     mergeSort(left),

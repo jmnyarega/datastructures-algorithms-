@@ -1,17 +1,33 @@
 class MaxHeap {
+  /**
+  * Contructor
+  * @member {MaxHeap}
+  */
   constructor() {
     this.heap = [null];
   }
 
+  /**
+  * getHeap -> returns the current state of the heap
+  * @member {MaxHeap}
+  * @return {heap} Object
+  */
   getHeap() { return this.heap; }
 
+  /**
+  * insert -> inserts data to current heap
+  * @param {num} num number to be added
+  * @member {MaxHeap}
+  * @return {null}
+  */
   insert(num) {
     this.heap.push(num);
     if (this.heap.length > 2) {
       let idx = this.heap.length - 1;
       while (this.heap[idx] > this.heap[Math.floor(idx / 2)]) {
         if (idx >= 1) {
-          [this.heap[Math.floor(idx / 2)], this.heap[idx]] = [this.heap[idx], this.heap[Math.floor(idx / 2)]];
+          [this.heap[Math.floor(idx / 2)], this.heap[idx]] =
+          [this.heap[idx], this.heap[Math.floor(idx / 2)]];
           if (Math.floor(idx / 2) > 1) {
             idx = Math.floor(idx / 2);
           } else {
@@ -22,6 +38,11 @@ class MaxHeap {
     }
   }
 
+  /**
+  * remove -> removes data from the current heap
+  * @member {MaxHeap}
+  * @return {null}
+  */
   remove() {
     const smallest = this.heap[1];
     if (this.heap.length > 2) {
@@ -39,6 +60,7 @@ class MaxHeap {
       while (this.heap[i] <= this.heap[left] || this.heap[i] <= this.heap[right]) {
         if (this.heap[left] > this.heap[right]) {
           [this.heap[i], this.heap[left]] = [this.heap[left], this.heap[i]];
+          // eslint-disable-next-line operator-assignment
           i = 2 * i;
         } else {
           [this.heap[i], this.heap[right]] = [this.heap[right], this.heap[i]];
