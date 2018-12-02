@@ -26,7 +26,7 @@ class Queue {
 
   printQueue() {
     let str = '';
-    for (let i = 0; i < this.items.length; i++) {
+    for (let i = 0; i < this.items.length; i += 1) {
       str += `${this.items[i]} `;
     }
     return str;

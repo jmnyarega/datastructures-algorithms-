@@ -1,10 +1,10 @@
-class Node {
-  constructor(key) {
-    this.left = null;
-    this.right = null;
-    this.val = key;
-  }
+const Tree = require('./tree');
 
+class DFTraversal extends Tree {
+  /**
+  * Inorder Traversal (Left-Root-Right)
+  * @param {root} root node
+  */
   inOrder(root) {
     if (root) {
       this.inOrder(root.left);
@@ -13,6 +13,10 @@ class Node {
     }
   }
 
+  /**
+  * Preorder Traversal (Root-Left-Right)
+  * @param {root} root node
+  */
   postOrder(root) {
     if (root) {
       this.postOrder(root.left);
@@ -21,6 +25,10 @@ class Node {
     }
   }
 
+  /**
+  * Postorder Traversal (Left-Right-Root)
+  * @param {root} root node
+  */
   preOrder(root) {
     if (root) {
       console.log(root.val);
@@ -31,11 +39,11 @@ class Node {
 }
 
 // driver
-const root = new Node(1);
-root.left = new Node(2);
-root.right = new Node(3);
-root.left.left = new Node(4);
-root.left.right = new Node(5);
+const root = new DFTraversal(1);
+root.left = new DFTraversal(2);
+root.right = new DFTraversal(3);
+root.left.left = new DFTraversal(4);
+root.left.right = new DFTraversal(5);
 
 // preOder
 console.log(`${root.preOrder(root)} Pre Order`);

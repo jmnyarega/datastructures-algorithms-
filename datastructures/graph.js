@@ -17,7 +17,7 @@ class Graph {
     const getKeys = this.AdjList.keys();
     for (const i of getKeys) {
       const getValues = this.AdjList.get(i);
-      const conc = '';
+      let conc = '';
       for (const j of getValues) {
         conc += `${j} `;
       }
