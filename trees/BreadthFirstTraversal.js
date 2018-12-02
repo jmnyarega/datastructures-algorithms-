@@ -1,7 +1,7 @@
 const Tree = require('./tree');
 
 /**
-  * Recursive Python program for level order traversal of Binary Tree
+  * Recursive javascript program for level order traversal of Binary Tree
  */
 class BFTraversal extends Tree {
   /**

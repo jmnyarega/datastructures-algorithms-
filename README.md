@@ -22,3 +22,5 @@
 - Trees
   * [breadth First traversal](https://github.com/jmnyarega/datastructures-algorithms-/blob/master/trees/BreadthFirstTraversal.js)
   + [depth first traversal](https://github.com/jmnyarega/datastructures-algorithms-/blob/master/trees/DepthFirstTraversals.js)
+- Graphs
+  * [dijkstras](https://github.com/jmnyarega/datastructures-algorithms-/blob/master/graphs/dijkstra.js)
