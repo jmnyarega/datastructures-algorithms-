@@ -2,25 +2,22 @@
 * merge ->  compare the arrays item by item and return the concatenated result
 * @param {left} left left half of the list
 * @param {right} right right half of the list
-* @return {mergingResult} sorted array
+* @return {result} sorted array
 */
 function merge(left, right) {
-  const result = [];
-  let indexLeft = 0;
-  let indexRight = 0;
+  let result = []
 
-  while (indexLeft < left.length && indexRight < right.length) {
-    if (left[indexLeft] < right[indexRight]) {
-      result.push(left[indexLeft]);
-      indexLeft += 1;
+  // checking if all params are non-zeros
+  while (left.length && right.length) {
+    if (left[0] <= right[0]) {
+      result.push(left.shift())
     } else {
-      result.push(right[indexRight]);
-      indexRight += 1;
+      result.push(right.shift())
     }
   }
-  const mergingResult = result.concat(left.slice(indexLeft)).concat(right.slice(indexRight));
-  console.log('merging ', mergingResult);
-  return mergingResult;
+  while (left.length) result.push(left.shift())
+  while (right.length) result.push(right.shift())
+  return result
 }
 
 /**
@@ -29,22 +26,19 @@ function merge(left, right) {
 * @param {right} right right half of the list
 * @return {func} merge function called recursively
 */
-function mergeSort(data) {
-  console.log('Splitting ', data);
-  if (data.length === 1) {
-    return data;
-  }
+function mergeSort(array) {
+  // spliting
+  if (array.length < 2) return array
+  const middle = Math.floor(array.length / 2)
+  const left = array.slice(0, middle)
+  const right = array.slice(middle, array.length)
 
-  const middle = Math.floor(data.length / 2);
-  const left = data.slice(0, middle);
-  const right = data.slice(middle);
-
+  // merging and sorting
   return merge(
     mergeSort(left),
-    mergeSort(right),
-  );
+    mergeSort(right)
+  )
 }
 
-
 const list = [54, 26, 93, 17, 77, 31, 44, 55, 20];
-console.log(mergeSort(list)); // [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]
+console.log(mergeSort(list)); // [ 17, 20, 26, 31, 44, 54, 55, 77, 93 ]
