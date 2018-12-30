@@ -3,12 +3,14 @@ sortedArray = []
 
 /**
 * selectionSort ->  goes through each element in an array to determine the least items and adds it to the new array
+* scans through the input array to identify the minimum element and copy it over to the first element of the output
+* array; then do another scan to identify and copy over the second-smallest element; and so on.
 * @param {arr} arr unsorted array input
 * @return {sortedArray} sorted array
 */
 function selectionSort(arr) {
   const array = arr
-  if(array.length != 0) {
+  if(array.length !== 0) {
     const lestItem = Math.min(...array)
     sortedArray.push(lestItem)
     const Index = array.indexOf(lestItem)

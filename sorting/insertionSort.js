@@ -1,22 +1,20 @@
-
 /**
   * The Insertion Sort -> It always maintains a sorted sublist in the lower positions of the list
   * @param {data} data to be sorted
  */
-const insertionSort = (data) => {
-  const inputArr = data;
-  const { length } = inputArr;
-  let output = '';
-  for (let i = 1; i < length; i += 1) {
-    const key = inputArr[i];
-    let j = i - 1;
-    while (j >= 0 && inputArr[j] > key) {
-      inputArr[j + 1] = inputArr[j];
-      j -= 1;
+function insertionSort(arr) {
+  let unsortedArray = arr
+  let sortedArray = arr
+  for (let i = 0; i < unsortedArray.length; i++) {
+    let key = unsortedArray[i]
+    let j = i-1
+    while( j >= 0 && key < unsortedArray[j] ) {
+      sortedArray[j+1] = unsortedArray[j]
+      j -= 1
     }
-    inputArr[j + 1] = key;
-    output += `\n Pass ${i} -> ${inputArr}`;
+    sortedArray[j+1] = key
   }
-  return output;
-};
+  return sortedArray
+}
+
 console.log(insertionSort([6, 5, 3, 1, 8, 7, 2, 4]));

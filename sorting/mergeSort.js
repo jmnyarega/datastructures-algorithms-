@@ -6,7 +6,6 @@
 */
 function merge(left, right) {
   let result = []
-
   // checking if all params are non-zeros
   while (left.length && right.length) {
     if (left[0] <= right[0]) {
@@ -41,5 +40,4 @@ function mergeSort(array) {
 }
 
 const list = [54, 26, 93, 17, 77, 31, 44, 55, 20];
-
 module.exports = mergeSort
